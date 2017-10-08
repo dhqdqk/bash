@@ -46,12 +46,27 @@ function github() {
     git $1 git@github.com:dhqdqk/$2 $3
 }
 
+
 # gituser name "yourname"; gituser email "youremail"
 function gituser() {
     git config --global user.$1 $2
 }
 
+# git pull https://github.com/googlehosts/hosts.git
+function githosts() {
+    if [ "$1" = "clone" ];then
+       git clone https://github.com/googlehosts/hosts.git
+    else
+       git pull https://github.com/googlehosts/hosts.git
+    fi
+}
+
 # newssh "youremail" to create a new ssh-keygen
 function newssh() {
     ssh-keygen -t rsa -b 4096 -C $1
+}
+
+# rework usb-mouse
+function mouse() {
+    sudo modprobe -r usbhid && sudo modprobe usbhid
 }
